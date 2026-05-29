@@ -28,3 +28,10 @@ htmlcov/
 dist/
 build/
 *.egg-info/
+
+# Private planning and coaching files
+CLAUDE.md
+plan.md
+plan_*.md
+*_plan.md
+revision_file.md
