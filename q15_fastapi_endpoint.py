@@ -9,3 +9,17 @@
 # - For now, the "answer" can just echo back: "You asked: <query>"
 #
 # To run it (after writing): uvicorn q15_fastapi_endpoint:app --reload
+
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class QuestionRequest(BaseModel):
+    query:str
+class AnswerResponse(BaseModel):
+    answer:str
+
+@app.post("/answer")
+async def answer(request:QuestionRequest) -> AnswerResponse:
+    return AnswerResponse(answer=f"you asked: {request.query}")
